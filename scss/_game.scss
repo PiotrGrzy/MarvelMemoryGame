@@ -1,0 +1,84 @@
+.game {
+  position: relative;
+  &__board {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-content: center;
+    gap: 10px;
+    align-items: stretch;
+    margin-top: 2rem;
+  }
+
+  &__card {
+    box-shadow: 0 5px 5px 10px rgba(0, 0, 0, 0.1);
+
+    border-radius: 5px;
+
+    background-color: #ca0000;
+    background-image: url("../assets/marvel-logo.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+
+  &__card:hover {
+    box-shadow: 0 5px 5px 10px rgba(255, 255, 255, 0.3);
+  }
+
+  &__card-img {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+  }
+
+  &__card-img--visible {
+    opacity: 1;
+  }
+
+  &__won {
+    position: absolute;
+    z-index: 10;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Bowlby One SC", cursive;
+
+    text-align: center;
+
+    display: none;
+
+    h2 {
+      font-size: 4rem;
+    }
+    h3,
+    p {
+      margin: 2rem;
+    }
+
+    p {
+      font-size: 2.2rem;
+    }
+
+    h3 {
+      font-size: 3rem;
+    }
+  }
+
+  &__btn {
+    border: none;
+    font-family: "Bowlby One SC", cursive;
+    background: none;
+    color: #ffffff;
+    font-size: 2.8rem;
+    cursor: pointer;
+  }
+
+  &__btn:hover {
+    text-shadow: 5px 5px 5px #ffffff;
+  }
+}

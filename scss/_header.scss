@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(17, 17, 17, 0.4);
+  padding: 1rem;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+
+  &__logo {
+    height: 6rem;
+  }
+
+  &__heading {
+    font-family: "Bowlby One SC", cursive;
+    text-align: center;
+    margin: 0 1rem;
+  }
+
+  span {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+    white-space: nowrap;
+  }
+}

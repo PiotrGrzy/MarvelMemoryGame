@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: rgb(50, 50, 50);
+  background-image: url("../assets/bg1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 950px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 5px;
+}
