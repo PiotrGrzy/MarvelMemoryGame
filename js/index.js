@@ -3,6 +3,7 @@ const turnsDisplay = document.querySelector(".header__turns");
 const remaining = document.querySelector(".header__remaining");
 const gameWon = document.querySelector(".game__won");
 const newGameBtn = document.querySelector(".game__btn");
+const result = document.querySelector(".game__result");
 
 const cards = [
   { name: "avengers", id: 0 },
@@ -39,6 +40,7 @@ let currentCard = null;
 let turns = 0;
 let cardsRemoved = 0;
 
+// Reset game
 const newGame = () => {
   currentCard = null;
   turns = 0;
@@ -51,9 +53,11 @@ const newGame = () => {
 };
 
 const endGame = () => {
+  result.textContent = `Tour final result is: ${turns} turns!`;
   gameWon.style.display = "block";
 };
 
+// Draws a card index from the array
 const getRandomCard = cards => {
   const randomIndex = Math.floor(Math.random() * cards.length);
   return randomIndex;
@@ -81,6 +85,7 @@ const removeCards = name => {
     remaining.textContent = `Remaining cards: ${28 - cardsRemoved}`;
     currentCard = null;
   });
+  // Checks if the game is over
   if (cardsRemoved === 28) {
     endGame();
   }
@@ -99,17 +104,16 @@ const showCards = () => {
 
 // Check for a match, hide cards back if no-match
 const handleBoardClick = e => {
+  // Checks if no multiple click on the same card
   if (currentCard && currentCard.dataset.id !== e.target.dataset.id) {
     turns++;
     turnsDisplay.textContent = `Turns: ${turns}`;
     e.target.classList.add("game__card-img--visible");
-
-    if (currentCard && currentCard.dataset.name === e.target.dataset.name) {
+    // Removes cards if theres a match
+    if (currentCard.dataset.name === e.target.dataset.name) {
       removeCards(currentCard.dataset.name);
-    } else if (
-      currentCard &&
-      currentCard.dataset.name !== e.target.dataset.name
-    ) {
+      // Hide cards if no match after 500milsec
+    } else if (currentCard.dataset.name !== e.target.dataset.name) {
       const hideCards = () => {
         curr.classList.remove("game__card-img--visible");
         e.target.classList.remove("game__card-img--visible");
@@ -119,12 +123,16 @@ const handleBoardClick = e => {
       currentCard = null;
     }
   } else {
+    // Asign 1st card to variable
     e.target.classList.add("game__card-img--visible");
     currentCard = e.target;
   }
 };
 
+// Start application
 showCards();
+
+//Events listeners
 
 newGameBtn.addEventListener("click", newGame);
 board.addEventListener("click", handleBoardClick);

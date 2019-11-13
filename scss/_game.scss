@@ -1,5 +1,6 @@
 .game {
   position: relative;
+
   &__board {
     margin: 0 auto;
     display: grid;
@@ -12,9 +13,7 @@
 
   &__card {
     box-shadow: 0 5px 5px 10px rgba(0, 0, 0, 0.1);
-
     border-radius: 5px;
-
     background-color: #ca0000;
     background-image: url("../assets/marvel-logo.jpg");
     background-position: center;
@@ -47,13 +46,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "Bowlby One SC", cursive;
-
     text-align: center;
-
     display: none;
 
     h2 {
       font-size: 4rem;
+      @media screen and (max-width: 500px) {
+        font-size: 3rem;
+      }
     }
     h3,
     p {
@@ -66,6 +66,9 @@
 
     h3 {
       font-size: 3rem;
+      @media screen and (max-width: 500px) {
+        font-size: 2rem;
+      }
     }
   }
 
