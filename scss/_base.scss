@@ -8,18 +8,18 @@
 
 html {
   font-size: 62.5%; // 1rem = 10px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #ffffff;
   overflow-x: hidden;
 }
 
 body {
   background-color: rgb(50, 50, 50);
-  background-image: url("../assets/bg1.jpg");
+  background-image: url('../assets/bg1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vmax;
+  height: 100vh;
 }
 
 .container {
